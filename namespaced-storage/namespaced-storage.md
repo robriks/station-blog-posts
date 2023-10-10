@@ -10,15 +10,12 @@ We've seen the far-reaching implications that new ERCs like ERC721 and ERC20 can
 
 ## Table of Contents
 
-- [Understanding ERC7201: Bringing Namespaced Storage to Smart Contracts](#understanding-erc7201-bringing-namespaced-storage-to-smart-contracts)
-    - [Why GroupOS and OpenZeppelin's newly released contracts use namespaced storage and why you should, too](#why-groupos-and-openzeppelins-newly-released-contracts-use-namespaced-storage-and-why-you-should-too)
-      - [Authored by Station Labs, the team behind GroupOS and 0xRails protocols.](#authored-by-station-labs-the-team-behind-groupos-and-0xrails-protocols)
   - [Introduction](#introduction)
   - [Table of Contents](#table-of-contents)
   - [Namespaced Storage: a non-technical primer](#namespaced-storage-a-non-technical-primer)
   - [Eliminating an entire class of hacks](#eliminating-an-entire-class-of-hacks)
-    - [Code example](#code-example)
-    - [Retrieving namespaced storage](#retrieving-namespaced-storage)
+  - [Code example](#code-example)
+  - [Retrieving namespaced storage](#retrieving-namespaced-storage)
   - [Gas considerations](#gas-considerations)
   - [In conclusion](#in-conclusion)
 
