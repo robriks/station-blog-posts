@@ -12,14 +12,14 @@ We've seen the far-reaching implications that new ERCs like ERC721 and ERC20 can
 
   - [Introduction](#introduction)
   - [Table of Contents](#table-of-contents)
-  - [Namespaced Storage: a non-technical primer](#namespaced-storage-a-non-technical-primer)
+  - [Namespaced Storage Overview](#namespaced-storage-overview)
   - [Eliminating an entire class of hacks](#eliminating-an-entire-class-of-hacks)
   - [Code example](#code-example)
   - [Retrieving namespaced storage](#retrieving-namespaced-storage)
   - [Gas considerations](#gas-considerations)
   - [In conclusion](#in-conclusion)
 
-## Namespaced Storage: a non-technical primer
+## Namespaced Storage Overview
 Namespaced storage, introduced by [ERC7201](https://eips.ethereum.org/EIPS/eip-7201), is a methodology for EVM smart contracts devised to prevent conflicts that can arise with data storage.
 
 It provides a structured and organized way to manage state variables, which can be particularly useful in large, complex software systems where a single developer mistake can cost users millions of dollars. One such example was the [Audius protocol hack in July 2022](https://decrypt.co/105913/how-audius-was-hacked-6m-ethereum-tokens), which resulted in damages topping $6 million.
