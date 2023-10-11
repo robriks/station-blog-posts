@@ -43,28 +43,28 @@ In the current web3 ecosystem, proxies and upgradeable contracts are ubiquitous.
 
 ### Code example
 
-The technical reasoning for the namespace's code derivation is beyond the scope of this blog post, but in short it can be done in a few lines of code:
+The technical reasoning for the namespace's code derivation is beyond the scope of this blog post, but in short it can be done in a few lines of code. Here's an example from [our 0xRails protocol](https://github.com/0xStation/0xrails/):
 
 ```solidity
-contract Example {
-    /// @custom:storage-location erc7201:example.main
-    struct MainStorage {
-        uint256 x;
-        uint256 y;
+library InitializableStorage {
+    /// @custom:storage-location erc7201:0xrails.Initializable
+    struct Layout {
+        bool _initialized;
+        bool _initializing;
     }
 
-    bytes32 private constant MAIN_STORAGE_LOCATION =
+    bytes32 internal constant INITIALIZABLE_STORAGE_SLOT =
         keccak256(abi.encode(
-          uint256(keccak256("example.main")) - 1)
-        ) & bytes32(uint256(0xff));
+          uint256(keccak256("0xrails.Initializable")) - 1)
+        ) & ~bytes32(uint256(0xff));
 }
 ```
 
 First, ERC-7201 storage is declared in the NatSpec comment at the top of the contract. Custom NatSpec tags were added as part of Solidity 0.8.20, so keep in mind this may throw a compiler error if using earlier versions than 0.8.20.
 
-Second, a struct of related variables pertaining to a named category is defined, in this case simply `x` and `y` which relate to `erc7201:example.main` as notated in the NatSpec. This string can be anything you like however, such as `fruitloopdonut:flavor.glazed`, which would be a strange namespace for a contract to use. 
+Second, a struct of related variables pertaining to a named category is defined, in this case two booleans `_initialized` and `_initializing` which relate to `erc7201:0xrails.Initializable` as notated in the NatSpec. This string can be anything you like however, such as `erc7201:donut.fruitloop`, which would be a strange namespace for a contract to use. 
 
-Third, this string is hashed, decremented, conjoined bitwise with `0xff` using the AND operator (&), and the result hashed again. These steps are simply to ensure sufficient entropy and prevent storage slot collisions.
+Third, this string is hashed, decremented, conjoined bitwise with `0xff` using the AND operator (&), negated, and the result hashed again. These steps are simply to ensure sufficient entropy and prevent storage slot collisions.
 
 ### Retrieving namespaced storage
 
@@ -73,20 +73,20 @@ The final 32 byte output of the steps outlined above is the storage slot where t
 To retrieve storage from that slot, use a single line of assembly to instantiate a pointer that accesses the slot directly. Here's an example:
 
 ```solidity
-    function _getMainStorage() private pure returns (MainStorage storage $) {
+    function layout() internal pure returns (Layout storage l) {
         assembly {
-            $.slot := MAIN_STORAGE_LOCATION
+            l.slot := INITIALIZABLE_STORAGE_SLOT
         }
     }
 ```
 
 From there, struct members can be accessed to your needs using the following:
 
-```uint256 x_ = $.x```
+```bool initialized = l._initialized```
 
 or 
 
-```uint256 y_ = $.y```
+```bool initializing = l._initializing```
 
 ## Gas considerations
 
