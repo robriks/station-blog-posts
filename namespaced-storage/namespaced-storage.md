@@ -64,7 +64,7 @@ First, ERC-7201 storage is declared in the NatSpec comment at the top of the con
 
 Second, a struct of related variables pertaining to a named category is defined, in this case two booleans `_initialized` and `_initializing` which relate to `erc7201:0xrails.Initializable` as notated in the NatSpec. This string can be anything you like however, such as `erc7201:donut.fruitloop`, which would be a strange namespace for a contract to use. 
 
-Third, this string is hashed, decremented, conjoined bitwise with `0xff` using the AND operator (&), negated, and the result hashed again. These steps are simply to ensure sufficient entropy and prevent storage slot collisions.
+Third, this string is hashed, decremented, conjoined bitwise with `~bytes32(0xff)` using the AND operator (&), and the result hashed again. These steps are simply to ensure sufficient entropy and prevent storage slot collisions.
 
 ### Retrieving namespaced storage
 
