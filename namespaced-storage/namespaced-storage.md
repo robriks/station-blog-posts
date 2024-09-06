@@ -1,6 +1,6 @@
 # Understanding ERC7201: Bringing Namespaced Storage to Smart Contracts
 ### Why GroupOS and OpenZeppelin's newly released contracts use namespaced storage and why you should, too
-#### Authored by [Station Labs](https://groupos.xyz), the team behind [GroupOS](https://github.com/0xstation/groupos) and [0xRails](https://github.com/0xStation/0xrails/) protocols.
+#### Authored by [Markus Osterlund](https://twitter.com/marsterlund) @ [Station Labs](https://groupos.xyz), the team behind [GroupOS](https://github.com/0xstation/groupos) and [0xRails](https://github.com/0xStation/0xrails/) protocols.
 
 ## Introduction
 
@@ -19,14 +19,14 @@ We've seen the far-reaching implications that new ERCs like ERC721 and ERC20 can
   - [Gas considerations](#gas-considerations)
   - [In conclusion](#in-conclusion)
 
-## Namespaced Storage Overview
+## Namespaced storage overview
 Namespaced storage, introduced by [ERC7201](https://eips.ethereum.org/EIPS/eip-7201), is a methodology for EVM smart contracts devised to prevent conflicts that can arise with data storage.
 
 It provides a structured and organized way to manage state variables, which can be particularly useful in large, complex software systems where a single developer mistake can cost users millions of dollars. One such example was the [Audius protocol hack in July 2022](https://decrypt.co/105913/how-audius-was-hacked-6m-ethereum-tokens), which resulted in damages topping $6 million.
 
 By using namespaced storage, contracts identify categories of state variables (in the form of structs) which are assigned to a 'namespace' within storage, effectively isolating them from one another. This prevents any potential conflicts or collisions between state variables when introducing new ones or upgrading/deprecating old ones.
 
-## Eliminating an entire class of hacks
+## A new standard in security
 One of the main issues that namespaced storage can solve is proxy storage collisions. Since they separate state storage from code logic into two or more smart contracts, proxies offer numerous benefits to using standalone contracts.
 
 <img width="500" alt="image" src="./assets/proxy.png">
