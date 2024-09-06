@@ -115,4 +115,4 @@ The Web3 & crypto industry has suffered enough hacks, for the sake the entire ec
 
 _I hope you enjoyed this post on ERC7201! If you have any questions or comments, please feel free to reach out below._
 
-_[Markus Osterlund <br> Solidity @ Station Labs](https://github.com/robriks)_
+_[Markus Osterlund] <br>  (https://github.com/robriks)_
