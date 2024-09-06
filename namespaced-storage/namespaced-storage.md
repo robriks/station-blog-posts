@@ -1,6 +1,8 @@
 # Understanding ERC7201: Bringing Namespaced Storage to Smart Contracts
-### Why GroupOS and OpenZeppelin's newly released contracts use namespaced storage and why you should, too
-#### Authored by [Markus Osterlund](https://twitter.com/marsterlund) @ [Station Labs](https://groupos.xyz), the team behind [GroupOS](https://github.com/0xstation/groupos) and [0xRails](https://github.com/0xStation/0xrails/) protocols.
+#### Authored by [Markus Osterlund](https://twitter.com/marsterlund) 
+##### smart contract engineer @ [Telcoin](https://telco.in)
+##### formerly protocol lead @ [Nouns Wave Protocol](https://github.com/robriks/nouns-wave-protocol)
+##### formerly solidity @ [Station Labs](https://groupos.xyz), the team behind [0xRails](https://github.com/0xStation/0xrails/) protocol
 
 ## Introduction
 
@@ -107,7 +109,7 @@ For more examples demonstrating this Solidity gas optimization quirk, check out 
 ## In conclusion
 Namespaced storage enhances code clarity, readability, and eliminates an entire class of smart contract vulnerabilities. By encapsulating data within specific namespaces, developers can more easily understand which parts of the contract interact with which data, making the code easier to read, maintain, and debug. It presents a solution for preventing storage collisions, which makes it a valuable tool for developing efficient, secure, and maintainable smart contracts.
 
-The Web3 & crypto industry has suffered enough hacks, for the sake the entire ecosystem's safety, join [GroupOS](https://groupos.xyz) and OpenZeppelin in using ERC7201 namespaced storage in your next smart contract project!
+The Web3 & crypto industry has suffered enough hacks, for the sake the entire ecosystem's safety, join OpenZeppelin in using ERC7201 namespaced storage in your next smart contract project!
 
 ---
 
